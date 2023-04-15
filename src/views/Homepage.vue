@@ -1,13 +1,32 @@
-<script setup></script>
+<script setup>
+const title = 'Hello world!'
+</script>
 
 <template>
-<div class="hero min-h-screen bg-base-200">
-  <div class="hero-content text-center">
-    <div class="max-w-md">
-      <h1 class="text-5xl font-bold">Hello there</h1>
-      <p class="py-6">Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda excepturi exercitationem quasi. In deleniti eaque aut repudiandae et a id nisi.</p>
-      <button class="btn btn-primary">Get Started</button>
-    </div>
+  <div m-60>
+    <h1 text-normal font-900>
+      {{ title }}
+    </h1>
+    <n-space>
+      <n-button>Default</n-button>
+      <n-button type="tertiary">
+        Tertiary
+      </n-button>
+      <n-button type="primary">
+        Primary
+      </n-button>
+      <n-button type="info">
+        Info
+      </n-button>
+      <n-button type="success">
+        Success
+      </n-button>
+      <n-button type="warning">
+        Warning
+      </n-button>
+      <n-button type="error">
+        Error
+      </n-button>
+    </n-space>
   </div>
-</div>
 </template>

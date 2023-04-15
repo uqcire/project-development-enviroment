@@ -1,18 +1,9 @@
 import { createRouter, createWebHistory } from 'vue-router'
+import { Routes as routes } from './routes'
 
 const router = createRouter({
-  history: createWebHistory(import.meta.env.BASE_URL),
-  routes: [
-    {
-      path: '/',
-      name: 'home',
-      component: () => import('@views/Homepage.vue'),
-      meta: {
-        title: 'Homepage',
-      },
-    },
-
-  ],
+  history: createWebHistory('/'),
+  routes,
 })
 
 router.beforeEach((to, from, next) => {
@@ -20,4 +11,6 @@ router.beforeEach((to, from, next) => {
   next()
 })
 
-export default router
+export function setupRouter(app) {
+  app.use(router)
+}

@@ -9,11 +9,11 @@ export {}
 
 declare module '@vue/runtime-core' {
   export interface GlobalComponents {
-    Header: typeof import('./src/components/Header.vue')['default']
-    'IIconPark:pineapple': typeof import('~icons/icon-park/pineapple')['default']
+    AppProvider: typeof import('./src/components/AppProvider/index.vue')['default']
+    NButton: typeof import('naive-ui')['NButton']
+    NConfigProvider: typeof import('naive-ui')['NConfigProvider']
+    NSpace: typeof import('naive-ui')['NSpace']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
-    TaskDetails: typeof import('./src/components/TaskDetails.vue')['default']
-    TaskForm: typeof import('./src/components/TaskForm.vue')['default']
   }
 }

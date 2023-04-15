@@ -1,7 +1,14 @@
 import { createApp } from 'vue'
-import './style.css'
-import { createPinia } from 'pinia'
-import router from './router'
+import '@/styles/global.css'
 import App from './App.vue'
+import { setupRouter } from '@/router'
+import { setupStore } from '@/store'
+import 'virtual:uno.css'
+import '@unocss/reset/normalize.css'
 
-createApp(App).use(router).use(createPinia()).mount('#app')
+const app = createApp(App)
+
+setupRouter(app)
+setupStore(app)
+
+app.mount('#app')
