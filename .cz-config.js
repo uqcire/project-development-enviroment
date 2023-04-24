@@ -14,7 +14,7 @@ module.exports = {
       {value: 'chore',    name: 'chore:    对构建过程或辅助工具和库的更改（不影响源文件、测试用例）'},
       {value: 'revert',   name: 'revert:   回滚 commit'},
       {value: 'build',    name: 'build:    构建流程、外部依赖变更（如升级 npm 包、修改 脚手架 配置等）'},
-      { value: 'wip',       name:'wip:       开发中' }
+      {value: 'wip',      name:'wip:       开发中' }
   ],
   scopes: [
     ['custom', '自定义'],
@@ -41,8 +41,8 @@ module.exports = {
     footer: '列举出所有变更的 Issues Closed（可选）。 例如: #31, #34：',
     confirmCommit: '确认提交？'
   },
-  allowCustomScopes: true,
-  skipQuestions: ['body', 'footer'],
+  // allowCustomScopes: true,
+  // skipQuestions: ['body', 'footer'],
   allowBreakingChanges: ['feat', 'fix'],
   subjectLimit: 100,
   breaklineChar: '|'
