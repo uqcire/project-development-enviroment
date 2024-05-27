@@ -4,7 +4,7 @@ import { createVitePlugins } from './src/build/plugin'
 import { wrapperEnv } from './src/build/utils'
 
 // https://vitejs.dev/config/
-export default defineConfig((mode) => {
+export default defineConfig((acc: any, mode: any) => {
   const env = loadEnv(mode, process.cwd())
   const viteEnv = wrapperEnv(env)
   const { VITE_PORT, VITE_PUBLIC_PATH } = viteEnv
