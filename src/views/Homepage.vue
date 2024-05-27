@@ -7,7 +7,7 @@ const title = 'Hello world!'
     <h1 text-normal font-900>
       {{ title }}
     </h1>
-    <n-space>
+    <n-flex>
       <n-button>Default</n-button>
       <n-button type="tertiary">
         Tertiary
@@ -27,6 +27,9 @@ const title = 'Hello world!'
       <n-button type="error">
         Error
       </n-button>
+    </n-flex>
+    <n-space>
+      <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Atque, dicta dignissimos? Mollitia nulla distinctio qui voluptate dolor sit totam officiis officia accusantium, iste nisi assumenda perferendis tempore cum quo maiores!</p>
     </n-space>
   </div>
 </template>

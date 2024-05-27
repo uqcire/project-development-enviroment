@@ -12,6 +12,7 @@ body {
 html {
   /* 1rem = 4px  方便unocss计算：在unocss中 1字体单位 = 0.25rem，相当于 1等份 = 1px */
   font-size: 4px;
+  font-size: calc(1rem + 0.25vw);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
