@@ -1,12 +1,9 @@
-import { defineConfig, presetAttributify, presetIcons, presetUno } from 'unocss'
+import presetUno from '@unocss/preset-uno'
+import { defineConfig } from 'unocss'
 
 export default defineConfig({
-  content: {
-    pipeline: {
-      exclude: ['node_modules', '.git', '.github', '.husky', '.vscode', 'build', 'dist', 'mock', 'public', './stats.html']
-    }
-  },
+  // ...UnoCSS options
   presets: [
-    presetUno(), presetIcons(), presetAttributify(),
+    presetUno(),
   ],
 })

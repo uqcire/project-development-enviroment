@@ -86,10 +86,10 @@ export function isEmpty(val) {
 }
 
 /**
- * * 类似mysql的IFNULL函数
- * * 第一个参数为null/undefined/'' 则返回第二个参数作为备用值，否则返回第一个参数
- * @param {Number|Boolean|String} val
- * @param {Number|Boolean|String} def
+ * 类似mysql的IFNULL函数
+ * 第一个参数为null/undefined/'' 则返回第二个参数作为备用值，否则返回第一个参数
+ * @param {number | boolean | string} val
+ * @param {number | boolean | string} def
  * @returns
  */
 export function ifNull(val, def = '') {
@@ -98,13 +98,13 @@ export function ifNull(val, def = '') {
 
 export function isUrl(path) {
   const reg
-    = /(((^https?:(?:\/\/)?)(?:[-;:&=\+\$,\w]+@)?[A-Za-z0-9.-]+(?::\d+)?|(?:www.|[-;:&=\+\$,\w]+@)[A-Za-z0-9.-]+)((?:\/[\+~%\/.\w-_]*)?\??(?:[-\+=&;%@.\w_]*)#?(?:[\w]*))?)$/
+    = /(((^https?:(?:\/\/)?)(?:[-;:&=+$,\w]+@)?[A-Za-z0-9.-]+(?::\d+)?|(?:www.|[-;:&=+$,\w]+@)[A-Za-z0-9.-]+)((?:\/[+~%/.\w-]*)?\??[-+=&;%@.\w]*(?:#\w*)?)?)$/
   return reg.test(path)
 }
 
 /**
  * @param {string} path
- * @returns {Boolean}
+ * @returns {boolean}
  */
 export function isExternal(path) {
   return /^(https?:|mailto:|tel:)/.test(path)

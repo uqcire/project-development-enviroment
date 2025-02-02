@@ -1,3 +1,5 @@
+const process = require('node:process')
+
 export function wrapperEnv(envOptions) {
   if (!envOptions)
     return {}
