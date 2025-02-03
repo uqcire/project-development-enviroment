@@ -33,7 +33,7 @@ export default defineConfig({
         ],
         useEmoji: false,
         emojiAlign: 'center',
-        useAI: false,
+        useAI: true,
         aiNumber: 1,
         themeColorCode: '',
         scopes: [],
