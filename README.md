@@ -1,49 +1,80 @@
-# Project Name
+# Project Development Environment - Element Plus
 
-A brief description of what this project does and who it's for.
+## Overview
 
-## Table of Contents
+This project is a development environment setup for Vue 3 applications using **Element Plus**, **Pinia**, and **Vue Router**. It is built with **Vite** for fast development and optimized builds.
 
-- [Installation](#installation)
-- [Usage](#usage)
-- [Contributing](#contributing)
-- [License](#license)
+## Features
+
+- **Vue 3**: The latest version of Vue.js for modern web applications.
+- **Element Plus**: A powerful UI component library for Vue 3.
+- **Pinia**: A state management system designed for Vue.
+- **Vue Router**: Routing support for Vue applications.
+- **Vite**: Fast build tool and development server.
+- **ESLint**: Code quality and linting support.
+- **Commitlint & Commitizen**: Standardized commit messages.
+- **UnoCSS**: On-demand utility-first CSS engine.
+- **Husky & Lint-staged**: Pre-commit hooks for enforcing code quality.
 
 ## Installation
 
-Instructions on how to install and set up the project.
+Ensure you have **PNPM** installed before proceeding.
 
-```bash
-# Clone the repository
-git clone https://github.com/yourusername/yourproject.git
-
-# Navigate to the project directory
-cd yourproject
-
-# Install dependencies
-npm install
+```sh
+pnpm install
 ```
 
-## Usage
+## Development
 
-Instructions on how to use the project.
+To start the development server:
 
-```bash
-# Start the project
-npm start
+```sh
+pnpm dev
 ```
 
-## Contributing
+## Build
 
-Guidelines for contributing to the project.
+To build the project for production:
 
-1. Fork the repository.
-2. Create a new branch (`git checkout -b feature-branch`).
-3. Make your changes.
-4. Commit your changes (`git commit -m 'Add some feature'`).
-5. Push to the branch (`git push origin feature-branch`).
-6. Open a pull request.
+```sh
+pnpm build
+```
+
+## Preview
+
+To preview the production build:
+
+```sh
+pnpm preview
+```
+
+## Linting
+
+Run ESLint to check for issues:
+
+```sh
+pnpm lint
+```
+
+Fix linting issues automatically:
+
+```sh
+pnpm lint:fix
+```
+
+## Versioning & Commit Messages
+
+This project follows **Conventional Commits**. Use Commitizen for structured commits:
+
+```sh
+pnpm cz
+```
 
 ## License
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+This project is licensed under the **MIT License**.
+
+---
+
+For further details, refer to the documentation of the respective dependencies.
+

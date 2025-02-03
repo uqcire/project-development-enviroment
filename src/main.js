@@ -1,8 +1,8 @@
 import { setupRouter } from '@/router'
 import { setupStore } from '@/store'
-import { createApp } from 'vue'
-import '@/styles/index.css'
+import '@/styles/global.css'
 import 'virtual:uno.css'
+import { createApp } from 'vue'
 import App from '/App.vue'
 
 const app = createApp(App)

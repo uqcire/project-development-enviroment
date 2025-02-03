@@ -1,10 +1,9 @@
 {
-  "name": "tutorial-template",
+  "name": "project-development-environment--element-plus",
   "version": "1.0.0",
   "packageManager": "pnpm@9.15.4+sha512.b2dc20e2fc72b3e18848459b37359a32064663e5627a51e4c74b2c29dd8e8e0491483c3abb40789cfd578bf362fb6ba8261b05f0387d76792ed6e23ea3b1b6a0",
   "license": "MIT",
   "main": "index.js",
-
   "scripts": {
     "dev": "vite",
     "build": "vite build",
@@ -15,16 +14,17 @@
   },
   "dependencies": {
     "axios": "^1.7.9",
+    "element-plus": "^2.9.3",
     "pinia": "^2.3.1",
     "vite": "^6.0.11",
     "vue": "^3.5.13",
     "vue-router": "^4.5.0"
   },
   "devDependencies": {
-    "@antfu/eslint-config": "^4.1.0",
-    "@commitlint/cli": "^19.6.1",
-    "@commitlint/config-conventional": "^19.6.0",
-    "@iconify/json": "^2.2.301",
+    "@antfu/eslint-config": "^4.1.1",
+    "@commitlint/cli": "^19.7.1",
+    "@commitlint/config-conventional": "^19.7.1",
+    "@iconify/json": "^2.2.302",
     "@types/node": "^22.13.0",
     "@unocss/eslint-config": "^65.4.3",
     "@unocss/preset-uno": "^65.4.3",
