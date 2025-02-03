@@ -1,10 +1,6 @@
 import vue from '@vitejs/plugin-vue'
 import { fileURLToPath, URL } from 'node:url'
 import { visualizer } from 'rollup-plugin-visualizer'
-import UnoCSS from 'unocss/vite'
-import AutoImport from 'unplugin-auto-import/vite'
-import { ElementPlusResolver } from 'unplugin-vue-components/resolvers'
-import Components from 'unplugin-vue-components/vite'
 import { defineConfig, loadEnv } from 'vite'
 import viteCompression from 'vite-plugin-compression'
 import { wrapperEnv } from './src/build/utils'
@@ -21,7 +17,6 @@ export default defineConfig((mode) => {
 
     plugins: [
       vue(),
-      UnoCSS(),
       viteCompression({
         deleteOriginFile: false, // 压缩后是否删除源文件
       }),
@@ -31,12 +26,7 @@ export default defineConfig((mode) => {
         brotliSize: true, // 是否分析brotli大小
       // filename: 'stats.html'//分析文件命名
       }),
-      AutoImport({
-        resolvers: [ElementPlusResolver()],
-      }),
-      Components({
-        resolvers: [ElementPlusResolver()],
-      }),
+
     ],
     base: VITE_PUBLIC_PATH || '/',
     resolve: {

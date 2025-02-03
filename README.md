@@ -1,80 +1,75 @@
-# Project Development Environment - Element Plus
+# Project Development Environment
 
 ## Overview
-
-This project is a development environment setup for Vue 3 applications using **Element Plus**, **Pinia**, and **Vue Router**. It is built with **Vite** for fast development and optimized builds.
+This project provides a development environment for building modern web applications using Vue 3, Vite, and Pinia. It is equipped with essential development tools, including ESLint, Commitlint, and Husky, to ensure code quality and consistency.
 
 ## Features
-
-- **Vue 3**: The latest version of Vue.js for modern web applications.
-- **Element Plus**: A powerful UI component library for Vue 3.
-- **Pinia**: A state management system designed for Vue.
-- **Vue Router**: Routing support for Vue applications.
-- **Vite**: Fast build tool and development server.
-- **ESLint**: Code quality and linting support.
-- **Commitlint & Commitizen**: Standardized commit messages.
-- **UnoCSS**: On-demand utility-first CSS engine.
-- **Husky & Lint-staged**: Pre-commit hooks for enforcing code quality.
+- **Modern Frameworks**: Built with Vue 3, Vite, and Vue Router.
+- **State Management**: Uses Pinia for efficient and scalable state management.
+- **Code Linting and Formatting**: Includes ESLint and lint-staged to enforce code quality.
+- **Git Hooks**: Configured with Husky to automate pre-commit linting and commit message validation.
+- **Commit Standardization**: Uses Commitlint and Commitizen for structured commit messages.
+- **Automatic Imports**: Leverages unplugin-auto-import and unplugin-vue-components for streamlined development.
+- **Performance Optimization**: Includes rollup-plugin-visualizer and vite-plugin-compression.
 
 ## Installation
-
-Ensure you have **PNPM** installed before proceeding.
+Ensure you have [pnpm](https://pnpm.io/) installed before proceeding.
 
 ```sh
 pnpm install
 ```
 
-## Development
-
-To start the development server:
-
+## Usage
+### Development
+Start the development server with:
 ```sh
 pnpm dev
 ```
 
-## Build
-
-To build the project for production:
-
+### Build for Production
+Generate a production-ready build:
 ```sh
 pnpm build
 ```
 
-## Preview
-
-To preview the production build:
-
+### Preview Production Build
+Preview the build locally:
 ```sh
 pnpm preview
 ```
 
-## Linting
-
+### Linting
 Run ESLint to check for issues:
-
 ```sh
 pnpm lint
 ```
 
-Fix linting issues automatically:
-
+Automatically fix lint issues:
 ```sh
 pnpm lint:fix
 ```
 
-## Versioning & Commit Messages
-
-This project follows **Conventional Commits**. Use Commitizen for structured commits:
-
+### Commit Standardization
+To ensure commit messages follow the conventional format, use:
 ```sh
 pnpm cz
 ```
 
-## License
+## Project Structure
+```
+/project-development-environment
+│── src/             # Source code
+│── public/          # Static assets
+│── .eslintrc.js     # ESLint configuration
+│── commitlint.config.js  # Commitlint configuration
+│── package.json     # Project metadata and dependencies
+│── pnpm-lock.yaml   # Dependency lock file
+│── README.md        # Project documentation
+```
 
+## License
 This project is licensed under the **MIT License**.
 
----
-
-For further details, refer to the documentation of the respective dependencies.
+## Contributors
+Contributions are welcome! Please follow the commit guidelines and submit a pull request.
 
