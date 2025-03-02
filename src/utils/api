@@ -113,3 +113,26 @@ export function isExternal(path) {
 export const isServer = typeof window === 'undefined'
 
 export const isClient = !isServer
+
+// Axios get & post
+// 封装 GET 请求
+export function get(url, options) {
+  return instance
+    .get(url, options)
+    .then(response => response.data)  // 只返回 data 部分
+    .catch(error => {
+      console.error("请求 GET 错误:", error);
+      return Promise.reject(error);  // 返回错误信息
+    });
+}
+
+// 封装 POST 请求
+export function post(url, options) {
+  return instance
+    .post(url, options)
+    .then(response => response.data)  // 只返回 data 部分
+    .catch(error => {
+      console.error("请求 POST 错误:", error);
+      return Promise.reject(error);  // 返回错误信息
+    });
+}
