@@ -1,7 +1,7 @@
 {
   "name": "project-development-environment",
   "version": "1.0.0",
-  "packageManager": "pnpm@10.7.0",
+  "packageManager": "pnpm@10.11.0",
   "license": "MIT",
   "main": "index.js",
   "type": "module",
@@ -18,27 +18,28 @@
     "axios": "^1.9.0",
     "pinia": "^3.0.2",
     "vite": "^6.3.5",
-    "vue": "^3.5.13",
+    "vue": "^3.5.16",
     "vue-router": "^4.5.1"
   },
   "devDependencies": {
-    "@antfu/eslint-config": "^4.12.0",
-    "@commitlint/cli": "^19.8.0",
-    "@commitlint/config-conventional": "^19.8.0",
-    "@iconify/json": "^2.2.335",
-    "@vitejs/plugin-vue": "^5.2.3",
+    "@antfu/eslint-config": "^4.13.2",
+    "@commitlint/cli": "^19.8.1",
+    "@commitlint/config-conventional": "^19.8.1",
+    "@iconify/json": "^2.2.342",
+    "@vitejs/plugin-vue": "^5.2.4",
     "commitizen": "^4.3.1",
     "commitlint-config-cz": "^0.13.3",
     "cz-git": "^1.11.1",
     "czg": "^1.11.1",
-    "eslint": "^9.26.0",
+    "eslint": "^9.27.0",
     "eslint-plugin-format": "^1.0.1",
     "husky": "^9.1.7",
-    "lint-staged": "^15.5.1",
+    "lint-staged": "^15.5.2",
     "rollup-plugin-visualizer": "^5.14.0",
-    "unplugin-auto-import": "^19.1.2",
-    "unplugin-vue-components": "^28.5.0",
-    "vite-plugin-compression": "^0.5.1"
+    "unplugin-auto-import": "^19.3.0",
+    "unplugin-vue-components": "^28.7.0",
+    "vite-plugin-compression": "^0.5.1",
+    "vite-plugin-qrcode": "^0.2.4"
   },
   "config": {
     "commitizen": {
