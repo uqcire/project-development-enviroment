@@ -8,6 +8,10 @@ const routes = [
     component: () => import('@/views/PAGE__HOME--DEFAULT.vue'),
     meta: {
       title: 'Homepage',
+      preload: true, // Preload critical routes
+      transition: 'fade',
+      keepAlive: true, // Cache component
+      layout: '' // Different layout
     },
   },
 ]
