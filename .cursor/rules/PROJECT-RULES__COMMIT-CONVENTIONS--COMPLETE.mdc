@@ -1,0 +1,395 @@
+---
+alwaysApply: true
+---
+
+# Cursor Project Rules
+
+## Commit Message Convention
+
+### Conventional Commit Format
+All commits MUST follow the conventional commit format:
+```
+<type>[optional scope]: <description>
+
+[optional body]
+
+[optional footer(s)]
+```
+
+### Commit Types
+Use ONLY these commit types with their corresponding emojis:
+- `feat` 🆕: A new feature
+- `fix` 🐛: A bug fix  
+- `docs` 📝: Documentation only changes
+- `style` 💄: Changes that do not affect the meaning of the code (white-space, formatting, missing semi-colons, etc)
+- `refactor` ♻️: A code change that neither fixes a bug nor adds a feature
+- `perf` ⚡: A code change that improves performance
+- `test` ✅: Adding missing tests or correcting existing tests
+- `build` 📦: Changes that affect the build system or external dependencies (example scopes: gulp, broccoli, npm)
+- `ci` 🎡: Changes to our CI configuration files and scripts
+- `chore` 🔨: Other changes that don't modify src or test files
+- `revert` ⏪: Reverts a previous commit
+
+### Commit Examples
+- `feat: add user authentication`
+- `fix(api): resolve login endpoint error`
+- `docs: update README installation guide`
+- `style: format code with prettier`
+- `refactor(components): extract common button logic`
+- `perf(router): lazy load components`
+- `test(auth): add unit tests for login function`
+- `build: update webpack configuration`
+- `ci: add automated testing workflow`
+- `chore: update dependencies`
+
+### Commit Rules
+- Use lowercase for type and description
+- Keep description under 72 characters
+- Use imperative mood ("add" not "added" or "adds")
+- Include scope when changes affect specific module/component
+- Add body for complex changes explaining what and why
+- Reference issues in footer using "Closes #123" format
+
+## Code Changes Requirements
+
+### Before Making Changes
+- Always understand the existing codebase before suggesting changes
+- Read related files and understand context
+- Respect existing code style and patterns
+- Suggest only minimal changes related to current task
+- Focus only on what the user is asking for, no extra improvements
+
+### Testing Requirements
+- Test all changes locally before suggesting
+- Add tests for new features or bug fixes
+- Ensure existing tests still pass
+- Include test scenarios in explanations
+
+### Breaking Changes
+- Clearly identify any breaking changes
+- Document what changes and why
+- Provide migration guide if applicable
+- Update documentation accordingly
+
+## Code Style Guidelines
+
+### General Principles
+- Prefer functional programming over OOP
+- Use separate OOP classes only for connectors and interfaces to external systems
+- Write pure functions with clear input/output, no hidden state changes
+- Functions must ONLY modify their return values
+- Never modify input parameters, global state, or data not explicitly returned
+
+### Code Quality
+- Follow DRY, KISS, and YAGNI principles
+- Use strict typing in all languages
+- Use named parameters in function calls when possible
+- No duplicate code - check if logic already exists
+- Avoid unnecessary wrapper functions
+- Prefer strongly-typed collections over generic ones
+
+### Error Handling
+- Always raise errors explicitly, never silently ignore them
+- Use specific error types that clearly indicate what went wrong
+- Avoid catch-all exception handlers that hide root cause
+- Error messages should be clear and actionable
+- Log errors with appropriate context before raising them
+
+### Naming Conventions
+- File names should be all uppercase (following project memory)
+- Use descriptive, meaningful names
+- Avoid abbreviations unless commonly understood
+- Be consistent with existing naming patterns
+
+## Pull Request Guidelines
+
+### PR Description Requirements
+- Provide clear description of changes
+- Select appropriate type of change checkbox
+- Include examples of new functionality
+- Document any configuration changes
+- Note any new dependencies
+
+### Code Review Checklist
+- [ ] Code follows project style guidelines
+- [ ] Self-review of code completed
+- [ ] Comments added to hard-to-understand areas
+- [ ] Tests added that prove fix/feature works
+- [ ] New and existing tests pass locally
+- [ ] No breaking changes without documentation
+- [ ] Commit messages follow conventional format
+
+### Testing Checklist
+- [ ] Changes tested locally
+- [ ] Added tests for new features
+- [ ] Updated tests for modified features
+- [ ] All tests pass
+- [ ] Performance impact considered
+
+### Documentation Updates
+- [ ] README updated if needed
+- [ ] API documentation updated
+- [ ] Comments added for complex logic
+- [ ] Breaking changes documented
+
+## AI Assistant Instructions
+
+### When Creating Commits
+- Always use conventional commit format
+- Select appropriate type from the approved list
+- Keep descriptions concise and imperative
+- Include scope when relevant
+- Reference issues when applicable
+
+### When Making Code Changes
+- Understand existing patterns first
+- Make minimal, focused changes
+- Follow established code style
+- Add appropriate tests
+- Document breaking changes
+
+### When Writing Documentation
+- Be clear and concise
+- Include examples
+- Follow existing documentation patterns
+- Update related documentation
+
+### Error Handling Requirements
+- Never silently ignore errors
+- Use specific error types
+- Provide clear error messages
+- Log with appropriate context
+- Raise errors immediately when they occur
+
+## Project-Specific Rules
+
+### Dependencies
+- Use pnpm as package manager
+- Keep dependencies minimal and justified
+- Update package.json for new dependencies
+- Document dependency choices
+
+### File Organization
+- Follow existing folder structure
+- Group related files together
+- Use consistent naming patterns
+- Keep components modular
+
+### Performance Considerations
+- Consider performance impact of changes
+- Use lazy loading where appropriate
+- Optimize bundle size
+- Profile performance-critical code
+
+## Quality Assurance
+
+### Before Submitting
+- All tests pass
+- Code is properly formatted
+- No console errors or warnings
+- Performance is acceptable
+- Documentation is updated
+
+### Code Review Focus
+- Functionality correctness
+- Code style consistency
+- Performance implications
+- Security considerations
+- Maintainability
+
+Remember: Consistency is key. Follow existing patterns and conventions throughout the project. # Cursor Project Rules
+
+## Commit Message Convention
+
+### Conventional Commit Format
+All commits MUST follow the conventional commit format:
+```
+<type>[optional scope]: <description>
+
+[optional body]
+
+[optional footer(s)]
+```
+
+### Commit Types
+Use ONLY these commit types with their corresponding emojis:
+- `feat` 🆕: A new feature
+- `fix` 🐛: A bug fix  
+- `docs` 📝: Documentation only changes
+- `style` 💄: Changes that do not affect the meaning of the code (white-space, formatting, missing semi-colons, etc)
+- `refactor` ♻️: A code change that neither fixes a bug nor adds a feature
+- `perf` ⚡: A code change that improves performance
+- `test` ✅: Adding missing tests or correcting existing tests
+- `build` 📦: Changes that affect the build system or external dependencies (example scopes: gulp, broccoli, npm)
+- `ci` 🎡: Changes to our CI configuration files and scripts
+- `chore` 🔨: Other changes that don't modify src or test files
+- `revert` ⏪: Reverts a previous commit
+
+### Commit Examples
+- `feat: add user authentication`
+- `fix(api): resolve login endpoint error`
+- `docs: update README installation guide`
+- `style: format code with prettier`
+- `refactor(components): extract common button logic`
+- `perf(router): lazy load components`
+- `test(auth): add unit tests for login function`
+- `build: update webpack configuration`
+- `ci: add automated testing workflow`
+- `chore: update dependencies`
+
+### Commit Rules
+- Use lowercase for type and description
+- Keep description under 72 characters
+- Use imperative mood ("add" not "added" or "adds")
+- Include scope when changes affect specific module/component
+- Add body for complex changes explaining what and why
+- Reference issues in footer using "Closes #123" format
+
+## Code Changes Requirements
+
+### Before Making Changes
+- Always understand the existing codebase before suggesting changes
+- Read related files and understand context
+- Respect existing code style and patterns
+- Suggest only minimal changes related to current task
+- Focus only on what the user is asking for, no extra improvements
+
+### Testing Requirements
+- Test all changes locally before suggesting
+- Add tests for new features or bug fixes
+- Ensure existing tests still pass
+- Include test scenarios in explanations
+
+### Breaking Changes
+- Clearly identify any breaking changes
+- Document what changes and why
+- Provide migration guide if applicable
+- Update documentation accordingly
+
+## Code Style Guidelines
+
+### General Principles
+- Prefer functional programming over OOP
+- Use separate OOP classes only for connectors and interfaces to external systems
+- Write pure functions with clear input/output, no hidden state changes
+- Functions must ONLY modify their return values
+- Never modify input parameters, global state, or data not explicitly returned
+
+### Code Quality
+- Follow DRY, KISS, and YAGNI principles
+- Use strict typing in all languages
+- Use named parameters in function calls when possible
+- No duplicate code - check if logic already exists
+- Avoid unnecessary wrapper functions
+- Prefer strongly-typed collections over generic ones
+
+### Error Handling
+- Always raise errors explicitly, never silently ignore them
+- Use specific error types that clearly indicate what went wrong
+- Avoid catch-all exception handlers that hide root cause
+- Error messages should be clear and actionable
+- Log errors with appropriate context before raising them
+
+### Naming Conventions
+- File names should be all uppercase (following project memory)
+- Use descriptive, meaningful names
+- Avoid abbreviations unless commonly understood
+- Be consistent with existing naming patterns
+
+## Pull Request Guidelines
+
+### PR Description Requirements
+- Provide clear description of changes
+- Select appropriate type of change checkbox
+- Include examples of new functionality
+- Document any configuration changes
+- Note any new dependencies
+
+### Code Review Checklist
+- [ ] Code follows project style guidelines
+- [ ] Self-review of code completed
+- [ ] Comments added to hard-to-understand areas
+- [ ] Tests added that prove fix/feature works
+- [ ] New and existing tests pass locally
+- [ ] No breaking changes without documentation
+- [ ] Commit messages follow conventional format
+
+### Testing Checklist
+- [ ] Changes tested locally
+- [ ] Added tests for new features
+- [ ] Updated tests for modified features
+- [ ] All tests pass
+- [ ] Performance impact considered
+
+### Documentation Updates
+- [ ] README updated if needed
+- [ ] API documentation updated
+- [ ] Comments added for complex logic
+- [ ] Breaking changes documented
+
+## AI Assistant Instructions
+
+### When Creating Commits
+- Always use conventional commit format
+- Select appropriate type from the approved list
+- Keep descriptions concise and imperative
+- Include scope when relevant
+- Reference issues when applicable
+
+### When Making Code Changes
+- Understand existing patterns first
+- Make minimal, focused changes
+- Follow established code style
+- Add appropriate tests
+- Document breaking changes
+
+### When Writing Documentation
+- Be clear and concise
+- Include examples
+- Follow existing documentation patterns
+- Update related documentation
+
+### Error Handling Requirements
+- Never silently ignore errors
+- Use specific error types
+- Provide clear error messages
+- Log with appropriate context
+- Raise errors immediately when they occur
+
+## Project-Specific Rules
+
+### Dependencies
+- Use pnpm as package manager
+- Keep dependencies minimal and justified
+- Update package.json for new dependencies
+- Document dependency choices
+
+### File Organization
+- Follow existing folder structure
+- Group related files together
+- Use consistent naming patterns
+- Keep components modular
+
+### Performance Considerations
+- Consider performance impact of changes
+- Use lazy loading where appropriate
+- Optimize bundle size
+- Profile performance-critical code
+
+## Quality Assurance
+
+### Before Submitting
+- All tests pass
+- Code is properly formatted
+- No console errors or warnings
+- Performance is acceptable
+- Documentation is updated
+
+### Code Review Focus
+- Functionality correctness
+- Code style consistency
+- Performance implications
+- Security considerations
+- Maintainability
+
+Remember: Consistency is key. Follow existing patterns and conventions throughout the project. 

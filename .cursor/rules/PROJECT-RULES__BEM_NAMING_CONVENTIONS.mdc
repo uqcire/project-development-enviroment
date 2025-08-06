@@ -1,0 +1,893 @@
+---
+alwaysApply: true
+---
+
+# BEM Naming Convention Rules
+
+## Overview
+
+BEM (Block Element Modifier) is a methodology that helps you to create reusable components and code sharing in front-end development. This document outlines the naming conventions for CSS classes, Vue components, and file structures in this project.
+
+## Table of Contents
+
+- [Basic BEM Structure](#basic-bem-structure)
+- [CSS Class Naming](#css-class-naming)
+- [Vue Component Naming](#vue-component-naming)
+- [File Structure](#file-structure)
+- [Examples](#examples)
+- [Best Practices](#best-practices)
+- [Common Patterns](#common-patterns)
+
+## Basic BEM Structure
+
+```
+.block__element--modifier
+```
+
+- **Block**: Standalone entity that is meaningful on its own
+- **Element**: A part of a block that has no standalone meaning
+- **Modifier**: A flag on a block or element used to change appearance or behavior
+
+### Separators
+
+- `__` (double underscore): Separates block from element
+- `--` (double hyphen): Separates modifier from block/element
+- `-` (single hyphen): Word separator within names
+
+## CSS Class Naming
+
+### 1. Block Naming
+
+```css
+/* ✅ Good */
+.header { }
+.navigation { }
+.search-form { }
+.user-profile { }
+
+/* ❌ Bad */
+.Header { }
+.main_navigation { }
+.searchForm { }
+```
+
+**Rules:**
+- Use lowercase letters
+- Use single hyphens for word separation
+- Be descriptive but concise
+- Avoid abbreviations
+
+### 2. Element Naming
+
+```css
+/* ✅ Good */
+.header__logo { }
+.header__navigation { }
+.search-form__input { }
+.search-form__button { }
+.user-profile__avatar { }
+.user-profile__name { }
+
+/* ❌ Bad */
+.header-logo { }
+.header .logo { }
+.search-form-input { }
+```
+
+**Rules:**
+- Always prefix with block name
+- Use `__` separator
+- Describe the element's purpose
+- Keep nesting to one level (no `.block__element__sub-element`)
+
+### 3. Modifier Naming
+
+```css
+/* ✅ Good - Boolean modifiers */
+.button--primary { }
+.button--disabled { }
+.header--fixed { }
+.navigation--mobile { }
+
+/* ✅ Good - Key-value modifiers */
+.button--size-large { }
+.button--theme-dark { }
+.text--color-primary { }
+.grid--columns-3 { }
+
+/* ❌ Bad */
+.button-primary { }
+.button_disabled { }
+.primaryButton { }
+```
+
+**Rules:**
+- Use `--` separator
+- Boolean modifiers: simple descriptive names
+- Key-value modifiers: use `key-value` format
+- Always combine with base block/element class
+
+## Vue Component Naming
+
+### 1. Component File Names
+
+```
+// ✅ Good
+UserProfile.vue
+SearchForm.vue
+NavigationMenu.vue
+ProductCard.vue
+
+// ❌ Bad
+userProfile.vue
+search-form.vue
+navigation_menu.vue
+```
+
+**Rules:**
+- Use PascalCase for component files
+- Be descriptive and specific
+- Avoid generic names like `Item.vue` or `Component.vue`
+
+### 2. Component Class Structure
+
+```vue
+<template>
+  <div class="user-profile">
+    <div class="user-profile__header">
+      <img class="user-profile__avatar" :src="avatar" />
+      <h2 class="user-profile__name">{{ name }}</h2>
+    </div>
+    <div class="user-profile__content">
+      <p class="user-profile__bio">{{ bio }}</p>
+    </div>
+  </div>
+</template>
+
+<style scoped>
+.user-profile {
+  /* Block styles */
+}
+
+.user-profile__header {
+  /* Element styles */
+}
+
+.user-profile__avatar {
+  /* Element styles */
+}
+
+.user-profile__name {
+  /* Element styles */
+}
+
+.user-profile__content {
+  /* Element styles */
+}
+
+.user-profile__bio {
+  /* Element styles */
+}
+
+/* Modifiers */
+.user-profile--compact {
+  /* Modifier styles */
+}
+
+.user-profile__avatar--large {
+  /* Element modifier styles */
+}
+</style>
+```
+
+## File Structure
+
+```
+src/
+├── components/
+│   ├── common/
+│   │   ├── Button/
+│   │   │   ├── Button.vue
+│   │   │   └── button.scss
+│   │   └── FormField/
+│   │       ├── FormField.vue
+│   │       └── form-field.scss
+│   └── layout/
+│       ├── Header/
+│       │   ├── Header.vue
+│       │   └── header.scss
+│       └── Navigation/
+│           ├── Navigation.vue
+│           └── navigation.scss
+└── styles/
+    ├── blocks/
+    │   ├── _button.scss
+    │   ├── _form-field.scss
+    │   └── _header.scss
+    └── main.scss
+```
+
+## Examples
+
+### 1. Button Component
+
+```html
+<!-- Base button -->
+<button class="button">Click me</button>
+
+<!-- Primary button -->
+<button class="button button--primary">Primary</button>
+
+<!-- Large disabled button -->
+<button class="button button--large button--disabled">Large Disabled</button>
+
+<!-- Button with icon -->
+<button class="button button--with-icon">
+  <span class="button__icon">🔍</span>
+  <span class="button__text">Search</span>
+</button>
+```
+
+```css
+.button {
+  /* Base button styles */
+}
+
+.button--primary {
+  background-color: #007bff;
+  color: white;
+}
+
+.button--large {
+  padding: 12px 24px;
+  font-size: 18px;
+}
+
+.button--disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.button--with-icon {
+  display: flex;
+  align-items: center;
+}
+
+.button__icon {
+  margin-right: 8px;
+}
+
+.button__text {
+  /* Text specific styles */
+}
+```
+
+### 2. Card Component
+
+```html
+<div class="card card--featured">
+  <div class="card__header">
+    <h3 class="card__title">Card Title</h3>
+    <span class="card__badge card__badge--new">New</span>
+  </div>
+  <div class="card__body">
+    <p class="card__description">Card description text...</p>
+  </div>
+  <div class="card__footer">
+    <button class="card__action button button--primary">Read More</button>
+  </div>
+</div>
+```
+
+### 3. Form Component
+
+```html
+<form class="contact-form contact-form--inline">
+  <div class="contact-form__field">
+    <label class="contact-form__label">Name</label>
+    <input class="contact-form__input contact-form__input--required" type="text">
+  </div>
+  <div class="contact-form__field">
+    <label class="contact-form__label">Email</label>
+    <input class="contact-form__input contact-form__input--email" type="email">
+  </div>
+  <div class="contact-form__actions">
+    <button class="contact-form__submit button button--primary">Submit</button>
+    <button class="contact-form__reset button button--secondary">Reset</button>
+  </div>
+</form>
+```
+
+## Best Practices
+
+### 1. ✅ DO
+
+- Use meaningful, descriptive names
+- Keep modifiers simple and boolean when possible
+- Combine BEM with utility classes sparingly
+- Use consistent naming patterns across the project
+- Document complex modifier systems
+
+```css
+/* Good: Clear hierarchy and purpose */
+.product-card { }
+.product-card__image { }
+.product-card__title { }
+.product-card__price { }
+.product-card--featured { }
+.product-card__price--discounted { }
+```
+
+### 2. ❌ DON'T
+
+- Don't nest elements beyond one level
+- Don't use tag selectors within BEM blocks
+- Don't mix BEM with other methodologies inconsistently
+- Don't use too generic names
+- Don't create overly complex modifier names
+
+```css
+/* Bad: Too nested */
+.product-card__content__details__price { }
+
+/* Bad: Tag selector dependency */
+.product-card h3 { }
+
+/* Bad: Too generic */
+.item { }
+.thing { }
+
+/* Bad: Overly complex modifier */
+.button--color-primary-with-shadow-and-hover-effect { }
+```
+
+### 3. Modifier Usage
+
+```html
+<!-- ✅ Always include base class -->
+<div class="button button--primary">Primary Button</div>
+
+<!-- ❌ Never use modifier alone -->
+<div class="button--primary">Primary Button</div>
+
+<!-- ✅ Multiple modifiers -->
+<div class="button button--primary button--large">Large Primary Button</div>
+```
+
+### 4. JavaScript Hooks
+
+Use `js-` prefix for JavaScript hooks, separate from styling classes:
+
+```html
+<button class="button button--primary js-submit-form">Submit</button>
+```
+
+```css
+/* ✅ Style with BEM */
+.button { }
+.button--primary { }
+
+/* ✅ Don't style JS hooks */
+.js-submit-form { 
+  /* No styles, JS only */
+}
+```
+
+## Common Patterns
+
+### 1. State Classes
+
+```css
+/* Use is- prefix for state */
+.navigation { }
+.navigation.is-open { }
+.navigation.is-loading { }
+
+/* Or use BEM modifiers */
+.navigation--open { }
+.navigation--loading { }
+```
+
+### 2. Responsive Modifiers
+
+```css
+.grid { }
+.grid--columns-1 { }
+.grid--columns-2 { }
+.grid--columns-3 { }
+
+/* Media query modifiers */
+@media (min-width: 768px) {
+  .grid--columns-md-2 { }
+  .grid--columns-md-3 { }
+}
+```
+
+### 3. Theme Modifiers
+
+```css
+.card { }
+.card--theme-dark { }
+.card--theme-light { }
+.card--theme-primary { }
+```
+
+## Tools and Automation
+
+### 1. CSS Linting
+
+Use stylelint with BEM rules:
+
+```json
+{
+  "rules": {
+    "selector-class-pattern": "^[a-z]([a-z0-9-]+)?(__([a-z0-9]+-?)+)?(--([a-z0-9]+-?)+){0,2}$",
+    "selector-id-pattern": null,
+    "selector-max-id": 0
+  }
+}
+```
+
+### 2. VS Code Extensions
+
+Recommended extensions:
+- BEM Helper
+- CSS Class Intellisense
+- SCSS Formatter
+
+---
+
+## Summary
+
+Following BEM methodology ensures:
+- **Predictable**: Easy to understand class purpose
+- **Reusable**: Components can be moved and reused
+- **Maintainable**: Clear structure reduces bugs
+- **Scalable**: Works well in large projects
+- **Team-friendly**: Consistent patterns for all developers
+
+Remember: **Consistency is key**. Choose one approach and stick with it throughout the project. # BEM Naming Convention Rules
+
+## Overview
+
+BEM (Block Element Modifier) is a methodology that helps you to create reusable components and code sharing in front-end development. This document outlines the naming conventions for CSS classes, Vue components, and file structures in this project.
+
+## Table of Contents
+
+- [Basic BEM Structure](#basic-bem-structure)
+- [CSS Class Naming](#css-class-naming)
+- [Vue Component Naming](#vue-component-naming)
+- [File Structure](#file-structure)
+- [Examples](#examples)
+- [Best Practices](#best-practices)
+- [Common Patterns](#common-patterns)
+
+## Basic BEM Structure
+
+```
+.block__element--modifier
+```
+
+- **Block**: Standalone entity that is meaningful on its own
+- **Element**: A part of a block that has no standalone meaning
+- **Modifier**: A flag on a block or element used to change appearance or behavior
+
+### Separators
+
+- `__` (double underscore): Separates block from element
+- `--` (double hyphen): Separates modifier from block/element
+- `-` (single hyphen): Word separator within names
+
+## CSS Class Naming
+
+### 1. Block Naming
+
+```css
+/* ✅ Good */
+.header { }
+.navigation { }
+.search-form { }
+.user-profile { }
+
+/* ❌ Bad */
+.Header { }
+.main_navigation { }
+.searchForm { }
+```
+
+**Rules:**
+- Use lowercase letters
+- Use single hyphens for word separation
+- Be descriptive but concise
+- Avoid abbreviations
+
+### 2. Element Naming
+
+```css
+/* ✅ Good */
+.header__logo { }
+.header__navigation { }
+.search-form__input { }
+.search-form__button { }
+.user-profile__avatar { }
+.user-profile__name { }
+
+/* ❌ Bad */
+.header-logo { }
+.header .logo { }
+.search-form-input { }
+```
+
+**Rules:**
+- Always prefix with block name
+- Use `__` separator
+- Describe the element's purpose
+- Keep nesting to one level (no `.block__element__sub-element`)
+
+### 3. Modifier Naming
+
+```css
+/* ✅ Good - Boolean modifiers */
+.button--primary { }
+.button--disabled { }
+.header--fixed { }
+.navigation--mobile { }
+
+/* ✅ Good - Key-value modifiers */
+.button--size-large { }
+.button--theme-dark { }
+.text--color-primary { }
+.grid--columns-3 { }
+
+/* ❌ Bad */
+.button-primary { }
+.button_disabled { }
+.primaryButton { }
+```
+
+**Rules:**
+- Use `--` separator
+- Boolean modifiers: simple descriptive names
+- Key-value modifiers: use `key-value` format
+- Always combine with base block/element class
+
+## Vue Component Naming
+
+### 1. Component File Names
+
+```
+// ✅ Good
+UserProfile.vue
+SearchForm.vue
+NavigationMenu.vue
+ProductCard.vue
+
+// ❌ Bad
+userProfile.vue
+search-form.vue
+navigation_menu.vue
+```
+
+**Rules:**
+- Use PascalCase for component files
+- Be descriptive and specific
+- Avoid generic names like `Item.vue` or `Component.vue`
+
+### 2. Component Class Structure
+
+```vue
+<template>
+  <div class="user-profile">
+    <div class="user-profile__header">
+      <img class="user-profile__avatar" :src="avatar" />
+      <h2 class="user-profile__name">{{ name }}</h2>
+    </div>
+    <div class="user-profile__content">
+      <p class="user-profile__bio">{{ bio }}</p>
+    </div>
+  </div>
+</template>
+
+<style scoped>
+.user-profile {
+  /* Block styles */
+}
+
+.user-profile__header {
+  /* Element styles */
+}
+
+.user-profile__avatar {
+  /* Element styles */
+}
+
+.user-profile__name {
+  /* Element styles */
+}
+
+.user-profile__content {
+  /* Element styles */
+}
+
+.user-profile__bio {
+  /* Element styles */
+}
+
+/* Modifiers */
+.user-profile--compact {
+  /* Modifier styles */
+}
+
+.user-profile__avatar--large {
+  /* Element modifier styles */
+}
+</style>
+```
+
+## File Structure
+
+```
+src/
+├── components/
+│   ├── common/
+│   │   ├── Button/
+│   │   │   ├── Button.vue
+│   │   │   └── button.scss
+│   │   └── FormField/
+│   │       ├── FormField.vue
+│   │       └── form-field.scss
+│   └── layout/
+│       ├── Header/
+│       │   ├── Header.vue
+│       │   └── header.scss
+│       └── Navigation/
+│           ├── Navigation.vue
+│           └── navigation.scss
+└── styles/
+    ├── blocks/
+    │   ├── _button.scss
+    │   ├── _form-field.scss
+    │   └── _header.scss
+    └── main.scss
+```
+
+## Examples
+
+### 1. Button Component
+
+```html
+<!-- Base button -->
+<button class="button">Click me</button>
+
+<!-- Primary button -->
+<button class="button button--primary">Primary</button>
+
+<!-- Large disabled button -->
+<button class="button button--large button--disabled">Large Disabled</button>
+
+<!-- Button with icon -->
+<button class="button button--with-icon">
+  <span class="button__icon">🔍</span>
+  <span class="button__text">Search</span>
+</button>
+```
+
+```css
+.button {
+  /* Base button styles */
+}
+
+.button--primary {
+  background-color: #007bff;
+  color: white;
+}
+
+.button--large {
+  padding: 12px 24px;
+  font-size: 18px;
+}
+
+.button--disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.button--with-icon {
+  display: flex;
+  align-items: center;
+}
+
+.button__icon {
+  margin-right: 8px;
+}
+
+.button__text {
+  /* Text specific styles */
+}
+```
+
+### 2. Card Component
+
+```html
+<div class="card card--featured">
+  <div class="card__header">
+    <h3 class="card__title">Card Title</h3>
+    <span class="card__badge card__badge--new">New</span>
+  </div>
+  <div class="card__body">
+    <p class="card__description">Card description text...</p>
+  </div>
+  <div class="card__footer">
+    <button class="card__action button button--primary">Read More</button>
+  </div>
+</div>
+```
+
+### 3. Form Component
+
+```html
+<form class="contact-form contact-form--inline">
+  <div class="contact-form__field">
+    <label class="contact-form__label">Name</label>
+    <input class="contact-form__input contact-form__input--required" type="text">
+  </div>
+  <div class="contact-form__field">
+    <label class="contact-form__label">Email</label>
+    <input class="contact-form__input contact-form__input--email" type="email">
+  </div>
+  <div class="contact-form__actions">
+    <button class="contact-form__submit button button--primary">Submit</button>
+    <button class="contact-form__reset button button--secondary">Reset</button>
+  </div>
+</form>
+```
+
+## Best Practices
+
+### 1. ✅ DO
+
+- Use meaningful, descriptive names
+- Keep modifiers simple and boolean when possible
+- Combine BEM with utility classes sparingly
+- Use consistent naming patterns across the project
+- Document complex modifier systems
+
+```css
+/* Good: Clear hierarchy and purpose */
+.product-card { }
+.product-card__image { }
+.product-card__title { }
+.product-card__price { }
+.product-card--featured { }
+.product-card__price--discounted { }
+```
+
+### 2. ❌ DON'T
+
+- Don't nest elements beyond one level
+- Don't use tag selectors within BEM blocks
+- Don't mix BEM with other methodologies inconsistently
+- Don't use too generic names
+- Don't create overly complex modifier names
+
+```css
+/* Bad: Too nested */
+.product-card__content__details__price { }
+
+/* Bad: Tag selector dependency */
+.product-card h3 { }
+
+/* Bad: Too generic */
+.item { }
+.thing { }
+
+/* Bad: Overly complex modifier */
+.button--color-primary-with-shadow-and-hover-effect { }
+```
+
+### 3. Modifier Usage
+
+```html
+<!-- ✅ Always include base class -->
+<div class="button button--primary">Primary Button</div>
+
+<!-- ❌ Never use modifier alone -->
+<div class="button--primary">Primary Button</div>
+
+<!-- ✅ Multiple modifiers -->
+<div class="button button--primary button--large">Large Primary Button</div>
+```
+
+### 4. JavaScript Hooks
+
+Use `js-` prefix for JavaScript hooks, separate from styling classes:
+
+```html
+<button class="button button--primary js-submit-form">Submit</button>
+```
+
+```css
+/* ✅ Style with BEM */
+.button { }
+.button--primary { }
+
+/* ✅ Don't style JS hooks */
+.js-submit-form { 
+  /* No styles, JS only */
+}
+```
+
+## Common Patterns
+
+### 1. State Classes
+
+```css
+/* Use is- prefix for state */
+.navigation { }
+.navigation.is-open { }
+.navigation.is-loading { }
+
+/* Or use BEM modifiers */
+.navigation--open { }
+.navigation--loading { }
+```
+
+### 2. Responsive Modifiers
+
+```css
+.grid { }
+.grid--columns-1 { }
+.grid--columns-2 { }
+.grid--columns-3 { }
+
+/* Media query modifiers */
+@media (min-width: 768px) {
+  .grid--columns-md-2 { }
+  .grid--columns-md-3 { }
+}
+```
+
+### 3. Theme Modifiers
+
+```css
+.card { }
+.card--theme-dark { }
+.card--theme-light { }
+.card--theme-primary { }
+```
+
+## Tools and Automation
+
+### 1. CSS Linting
+
+Use stylelint with BEM rules:
+
+```json
+{
+  "rules": {
+    "selector-class-pattern": "^[a-z]([a-z0-9-]+)?(__([a-z0-9]+-?)+)?(--([a-z0-9]+-?)+){0,2}$",
+    "selector-id-pattern": null,
+    "selector-max-id": 0
+  }
+}
+```
+
+### 2. VS Code Extensions
+
+Recommended extensions:
+- BEM Helper
+- CSS Class Intellisense
+- SCSS Formatter
+
+---
+
+## Summary
+
+Following BEM methodology ensures:
+- **Predictable**: Easy to understand class purpose
+- **Reusable**: Components can be moved and reused
+- **Maintainable**: Clear structure reduces bugs
+- **Scalable**: Works well in large projects
+- **Team-friendly**: Consistent patterns for all developers
+
+Remember: **Consistency is key**. Choose one approach and stick with it throughout the project. 
